@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Kabyuuu 💖</title>
+
+<style>
+body{
+  margin:0;
+  background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+  font-family:Arial,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  overflow:hidden;
+}
+
+.box{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  max-width:360px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  position:relative;
+  z-index:5;
+}
+
+button{
+  margin:10px;
+  padding:10px 22px;
+  border:none;
+  border-radius:20px;
+  background:#ff4b5c;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{ background:#e63b4a; }
+
+.small{
+  font-size:12px;
+  color:#555;
+  margin-top:8px;
+}
+
+/* emoji animations */
+.bounce{
+  animation:bounce 1s infinite alternate;
+}
+@keyframes bounce{
+  from{transform:translateY(0);}
+  to{transform:translateY(-8px);}
+}
+
+/* floating monkeys */
+.monkey{
+  position:absolute;
+  font-size:26px;
+  animation:floatUp 6s linear infinite;
+}
+@keyframes floatUp{
+  from{ transform:translateY(100vh); opacity:1;}
+  to{ transform:translateY(-100vh); opacity:0;}
+}
+
+/* floating hearts */
+.heart{
+  position:absolute;
+  color:#ff4b5c;
+  font-size:22px;
+  animation:heartFloat 5s linear infinite;
+}
+@keyframes heartFloat{
+  from{transform:translateY(100vh); opacity:1;}
+  to{transform:translateY(-100vh); opacity:0;}
+}
+
+/* dancing panda */
+.panda{
+  font-size:50px;
+  animation:dance 0.8s infinite alternate;
+}
+@keyframes dance{
+  from{transform:rotate(-10deg);}
+  to{transform:rotate(10deg);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="content">
+  <p>
+    Every time you smile, my world feels brighter ✨<br>
+    Every word you say stays in my heart 💖<br>
+    You became my favorite feeling 🌸
+    i just love more than anything else cutu 
+    and i promise u that i will never ever break ur trust 
+    i just luvv uh yrr more than infinty 
+  </p>
+  <button onclick="nextStep()">Next ➡️</button>
+</div>
+
+<script>
+let noCount = 0;
+
+function nextStep(){
+  document.getElementById("content").innerHTML = `
+    <h2>I love you, cutuputuu  ❤️</h2>
+    <p>Do you love me too cutu? <span class="bounce">🥰</span></p>
+
+    <button onclick="yesClick()">Yes 😊</button>
+    <button onclick="noClick()" id="noBtn">No 😶</button>
+
+    <div class="small">i lovee u more than infinity cutuuu ♾️💖</div>
+  `;
+}
+
+function noClick(){
+  noCount++;
+
+  if(noCount===1){
+    document.getElementById("content").innerHTML=`
+      <p>pakka naa ji ek aur br sochlo do u love me too. 🥺</p>
+      <button onclick="yesClick()">Yes 😊</button>
+      <button onclick="noClick()">No 😶</button>
+      <div class="small">i really luvv uu my cutuputuu 💕</div>
+    `;
+  }
+  else if(noCount===2){
+    document.getElementById("content").innerHTML=`
+      <p>acha ji esa he kya alee please think again na yl do u love me too... 🥹</p>
+      <button onclick="yesClick()">Yes 😊</button>
+      <button onclick="noClick()">No 😶</button>
+      <div class="small">i really luvv uhh yll cutu putu 😭</div>
+    `;
+  }
+  else{
+    playfulPage();
+  }
+}
+
+function playfulPage(){
+  document.getElementById("content").innerHTML=`
+    <p><b>hehehehe 😝<br>
+    chalo ab bataoo<br>
+    do you love me too .. 💖</b></p>
+
+    <button onclick="yesClick()">Yes 😊</button>
+    <button onclick="moveNo()" id="noBtn">No 😶</button>
+  `;
+
+  for(let i=0;i<12;i++){
+    let m=document.createElement("div");
+    m.className="monkey";
+    m.innerText="🙈";
+    m.style.left=Math.random()*100+"vw";
+    m.style.animationDuration=(4+Math.random()*4)+"s";
+    document.body.appendChild(m);
+  }
+}
+
+function moveNo(){
+  const btn=document.getElementById("noBtn");
+  const box=document.getElementById("content");
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*(box.offsetWidth-80)+"px";
+  btn.style.top=Math.random()*(box.offsetHeight-40)+"px";
+}
+
+function yesClick(){
+  document.getElementById("content").innerHTML=`
+    <h2>YEEEEEEAAAAA 😍🎉</h2>
+    <p>
+      I knew it yeaaaa myy cutuputuuuu  💖<br><br>
+      I love you more than infinity and more than anything elsee cutu ♾️💞
+    </p>
+    <div class="panda">🐼</div>
+  `;
+
+  for(let i=0;i<15;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerText="💖";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(3+Math.random()*4)+"s";
+    document.body.appendChild(h);
+  }
+}
+</script>
+
+</body>
+</html>
